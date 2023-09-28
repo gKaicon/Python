@@ -32,31 +32,25 @@ def jogar_jogo_da_velha():
     opcao = 1
     while opcao == 1:
         jogador = '0'; ganhou = None; jogadas = 0; jogo = [[' ' for _ in range(3)] for _ in range(3)]
-
         while ganhou is None and jogadas < 9:
             imprimir_jogo(jogo)
             print("\nJOGADOR 1 = 0\nJOGADOR 2 = X\n"f"JOGADOR {jogador}: Digite a linha e a coluna que deseja jogar: ")
             linha, coluna = map(int, input().split())
-
             if 0 <= linha < 3 and 0 <= coluna < 3 and jogo[linha][coluna] == ' ':
                 jogo[linha][coluna] = jogador
                 jogador = 'X' if jogador == '0' else '0'
                 jogadas += 1
             else:
                 print("Jogada inválida. Tente novamente.")
-
             ganhador = verificar_ganhador(jogo)
             if ganhador:
                 imprimir_jogo(jogo)
                 print(f"\nParabéns! O jogador {ganhador} venceu!\n")
                 ganhou = ganhador
-
         if ganhou is None:
             imprimir_jogo(jogo)
             print("\nO jogo terminou em empate!\n")
-
         print("Digite 1 para jogar novamente ou qualquer outra tecla para sair:")
         opcao = int(input())
-
 if __name__ == "__main__":
     jogar_jogo_da_velha()
