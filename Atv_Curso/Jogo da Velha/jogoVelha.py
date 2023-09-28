@@ -31,16 +31,11 @@ def verificar_ganhador(jogo):
 def jogar_jogo_da_velha():
     opcao = 1
     while opcao == 1:
-        jogador = '0'
-        ganhou = None
-        jogadas = 0
-        jogo = [[' ' for _ in range(3)] for _ in range(3)]
+        jogador = '0'; ganhou = None; jogadas = 0; jogo = [[' ' for _ in range(3)] for _ in range(3)]
 
         while ganhou is None and jogadas < 9:
             imprimir_jogo(jogo)
-
-            print("\nJOGADOR 1 = 0\nJOGADOR 2 = X\n")
-            print(f"JOGADOR {jogador}: Digite a linha e a coluna que deseja jogar: ")
+            print("\nJOGADOR 1 = 0\nJOGADOR 2 = X\n"f"JOGADOR {jogador}: Digite a linha e a coluna que deseja jogar: ")
             linha, coluna = map(int, input().split())
 
             if 0 <= linha < 3 and 0 <= coluna < 3 and jogo[linha][coluna] == ' ':
